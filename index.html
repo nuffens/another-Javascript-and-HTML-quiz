@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+
+
+    <style>
+        .container{
+            border: 5px solid black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 40%;
+            padding-bottom: 10px;
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        what color is the sky?<br>
+        <input type="radio" name="question1">red<br>
+        <input type="radio" name="question1" id="correct1">blue<br>
+        <input type="radio" name="question1">orange<br>
+        <input type="radio" name="question1">purple<br>
+        <button class="next" onclick="next(1)">next question</button>
+    </div>
+
+    <div class="container">
+        how many days are in a week?<br>
+        <input type="radio" name="question2">one<br>
+        <input type="radio" name="question2">thirty<br>
+        <input type="radio" name="question2">eight<br>
+        <input type="radio" name="question2"id="correct2">seven<br>
+        <button class="next" onclick="next(2)">next question</button>
+    </div>
+
+    <div class="container">
+        what is the best conlang?<br>
+        <input type="radio" name="question3"id="correct3">Esperanto<br>
+        <input type="radio" name="question3">Votgil<br>
+        <input type="radio" name="question3">Toki Pona<br>
+        <input type="radio" name="question3">F*rench<br>
+        <button class="next" onclick="next(3)">next question</button>
+    </div>
+
+    <div class="container">
+        how many letters are there in modern English?<br>
+        <input type="radio" name="question4">21<br>
+        <input type="radio" name="question4">45<br>
+        <input type="radio" name="question4">30<br>
+        <input type="radio" name="question4"id="correct4">26<br>
+        <button onclick="result()"> Submit Quiz</button>
+    </div>
+
+<script> 
+//displaying the first block of question
+document.getElementsByClassName('container')[0].style.display = "block";
+//defining the next function
+function next(id){
+    document.getElementsByClassName('container')[id-1].style.display = "none";
+    document.getElementsByClassName('container')[id].style.display = "block";
+}
+
+function result(){
+    var score = 0;
+    if(document.getElementById("correct1").checked) {score++} 
+    if(document.getElementById("correct2").checked) {score++} 
+    if(document.getElementById("correct3").checked) {score++} 
+    if(document.getElementById("correct4").checked) {score++} 
+    alert("Your score is: " + score)
+}
+
+</script>
+</body>
+</html>
